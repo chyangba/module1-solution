@@ -15,6 +15,15 @@
 .green{
     color: green;
 }
+.def{
+    color: black;
+}
+.redFocus {
+    border-color: red;
+}
+.greenFocus {
+    border-color: green;
+}
     </style>
   </head>
 <body>
@@ -23,14 +32,14 @@
      <div ng-controller="lunchController">
         
           <div class="form-group">
-             <input id="lunch-menu" type="text"
+             <input  id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control" ng-model="inputItem">
+             class="form-control" ng-class="active" ng-model="inputItem">
          </div>
          <div class="form-group">
              <button class="btn btn-default" ng-click="checkItems(inputItem)">Check If Too Much</button>
          </div>
-         <div class="form-group message" ng-class="active">
+         <div class="form-group message {{textColor}}"  ng-model="textColor">
            <!-- Your message can go here. -->
            {{resaultCheck}}
          </div>

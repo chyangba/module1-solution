@@ -6,16 +6,26 @@
         $scope.checkItems = function(str){
             if(!str || 0 === str.length){
                 $scope.resaultCheck = 'Please enter data first';
+                $scope.active = 'redFocus';
+                $scope.textColor = 'def';
             }else{
-                 var count = str.match(/,/g).length;
-                 console.log(count);
-                 if(count < 3 ){
-                     $scope.resaultCheck = 'Enjoy!';
-                     $scope.active = 'green';
-                 }else{
-                      $scope.resaultCheck = 'Too much!';
-                     $scope.active = 'red';
-                 }
+                $scope.active = 'greenFocus';
+                $scope.inputColor = 'red';
+                var strArrey = str.split('');
+                var count = 0;
+                for(var i = 0; i < strArrey.length; i++){
+                    if(strArrey[i] === ','){
+                        count++;
+                    }
+                }
+                if( count < 3){
+                    $scope.resaultCheck = "Enjoy!";
+                    $scope.textColor = 'green';
+                }else{
+                    $scope.resaultCheck = "Too much!";
+                    $scope.textColor = 'red';
+                    
+                }
             }
         };
     };
